@@ -1,0 +1,29 @@
+{
+  "component_type": "data_sharing_service",
+  "exported_at": "2026-10-28T15:54:46.885Z",
+  "activity": {
+    "iri": "https://hilosemantics.com/Multimodaltransport-1772188764268",
+    "name": "Multimodal transport",
+    "type": "business activity"
+  },
+  "service": {
+    "iri": "https://hilosemantics.com/data-sharing-service/cancellation1776260277487",
+    "namespace_prefix": "hilo",
+    "name": "cancellation",
+    "description": "",
+    "version": "1.0",
+    "type": "data sharing service",
+    "parent_iri": "https://hilosemantics.com/Multimodaltransport-1772188764268",
+    "interaction_type": "collaborate",
+    "initiating_role": "",
+    "creator": "",
+    "creation_date": "",
+    "hierarchy_assoc_ids": [],
+    "selected_property_iris": [],
+    "selected_code_iris": [],
+    "alignments": []
+  },
+  "states": [],
+  "state_transitions": [],
+  "data_sharing_events": []
+}
