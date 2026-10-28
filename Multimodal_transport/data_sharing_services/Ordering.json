@@ -1,0 +1,105 @@
+{
+  "component_type": "data_sharing_service",
+  "exported_at": "2026-10-28T15:54:51.858Z",
+  "activity": {
+    "iri": "https://hilosemantics.com/Multimodaltransport-1772188764268",
+    "name": "Multimodal transport",
+    "type": "business activity"
+  },
+  "service": {
+    "iri": "https://hilosemantics.com/Ordering-1773230532005",
+    "namespace_prefix": "hilo",
+    "name": "Ordering",
+    "description": "",
+    "version": "1.0",
+    "type": "data sharing service",
+    "parent_iri": "https://hilosemantics.com/Multimodaltransport-1772188764268",
+    "interaction_type": "",
+    "initiating_role": "",
+    "creator": "",
+    "creation_date": "",
+    "hierarchy_assoc_ids": [],
+    "selected_property_iris": [],
+    "selected_code_iris": [],
+    "alignments": [
+      {
+        "type": "owl:sameAs",
+        "target_uri": "https://hilosemantics.com/DataSharingService",
+        "target_class": "https://hilosemantics.com/DataSharingService"
+      }
+    ]
+  },
+  "states": [
+    {
+      "iri": "https://hilosemantics.com/Orderconfirmed-1773231332182",
+      "namespace_prefix": "hilo",
+      "name": "Order confirmed",
+      "description": "",
+      "version": "1.0",
+      "type": "state",
+      "parent_iri": "https://hilosemantics.com/Ordering-1773230532005",
+      "interaction_type": "",
+      "initiating_role": "",
+      "creator": "",
+      "creation_date": "",
+      "hierarchy_assoc_ids": [],
+      "selected_property_iris": [],
+      "selected_code_iris": [],
+      "alignments": []
+    },
+    {
+      "iri": "https://hilosemantics.com/Ordershared-1773231318049",
+      "namespace_prefix": "hilo",
+      "name": "Order shared",
+      "description": "",
+      "version": "1.0",
+      "type": "state",
+      "parent_iri": "https://hilosemantics.com/Ordering-1773230532005",
+      "interaction_type": "",
+      "initiating_role": "",
+      "creator": "",
+      "creation_date": "",
+      "hierarchy_assoc_ids": [],
+      "selected_property_iris": [],
+      "selected_code_iris": [],
+      "alignments": []
+    }
+  ],
+  "state_transitions": [],
+  "data_sharing_events": [
+    {
+      "iri": "https://hilosemantics.com/Executionplan-1773231367038",
+      "namespace_prefix": "hilo",
+      "name": "Execution plan",
+      "description": "",
+      "version": "1.0",
+      "type": "data sharing event",
+      "parent_iri": "https://hilosemantics.com/Ordering-1773230532005",
+      "interaction_type": "collaborate",
+      "initiating_role": "service provider",
+      "creator": "",
+      "creation_date": "",
+      "hierarchy_assoc_ids": [],
+      "selected_property_iris": [],
+      "selected_code_iris": [],
+      "alignments": []
+    },
+    {
+      "iri": "https://hilosemantics.com/Order-1773231347038",
+      "namespace_prefix": "hilo",
+      "name": "Order",
+      "description": "",
+      "version": "1.0",
+      "type": "data sharing event",
+      "parent_iri": "https://hilosemantics.com/Ordering-1773230532005",
+      "interaction_type": "collaborate",
+      "initiating_role": "customer",
+      "creator": "",
+      "creation_date": "",
+      "hierarchy_assoc_ids": [],
+      "selected_property_iris": [],
+      "selected_code_iris": [],
+      "alignments": []
+    }
+  ]
+}
