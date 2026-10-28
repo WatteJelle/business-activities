@@ -1,0 +1,113 @@
+@prefix hilo: <https://hilosemantics.com/> .
+@prefix geof: <http://www.opengis.net/def/function/geosparql/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix qudt-dimension: <http://qudt.org/vocab/dimension/> .
+@prefix qudt-quantitykind: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudt-unit: <http://qudt.org/vocab/unit/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unece: <https://vocabulary.uncefact.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+hilo:TexttypeShape a sh:NodeShape ;
+    sh:targetClass hilo:Texttype ;
+    rdfs:label "Text type Shape"  .
+
+hilo:businessactivityShape a sh:NodeShape ;
+    sh:targetClass hilo:businessactivity ;
+    rdfs:label "business activity Shape" ;
+    sh:property [
+        sh:path hilo:actPerformedBy 
+    ]  .
+
+hilo:EventShape a sh:NodeShape ;
+    sh:targetClass hilo:Event ;
+    rdfs:label "Event Shape"  .
+
+hilo:ObservationShape a sh:NodeShape ;
+    sh:targetClass hilo:Observation ;
+    rdfs:label "Observation Shape" ;
+    sh:property [
+        sh:path hilo:obsPart_Observation_Participation 
+    ] ;
+    sh:property [
+        sh:path hilo:obsEvent_Observation_Event 
+    ] ;
+    sh:property [
+        sh:path hilo:obsEvent 
+    ] ;
+    sh:property [
+        sh:path hilo:obsPart 
+    ]  .
+
+hilo:SettingShape a sh:NodeShape ;
+    sh:targetClass hilo:Setting ;
+    rdfs:label "Setting Shape" ;
+    sh:property [
+        sh:path hilo:setEvent 
+    ] ;
+    sh:property [
+        sh:path hilo:setPart 
+    ]  .
+
+hilo:ParticipationShape a sh:NodeShape ;
+    sh:targetClass hilo:Participation ;
+    rdfs:label "Participation Shape" ;
+    sh:property [
+        sh:path hilo:partEvent_Participation_Event 
+    ] ;
+    sh:property [
+        sh:path hilo:partPerson_Participation_Enterprise 
+    ] ;
+    sh:property [
+        sh:path hilo:partTwin 
+    ] ;
+    sh:property [
+        sh:path hilo:partEvent 
+    ] ;
+    sh:property [
+        sh:path hilo:CT 
+    ] ;
+    sh:property [
+        sh:path hilo:CN 
+    ] ;
+    sh:property [
+        sh:path hilo:DR 
+    ] ;
+    sh:property [
+        sh:path hilo:partTruck 
+    ] ;
+    sh:property [
+        sh:path hilo:Goods 
+    ]  .
+
+hilo:NaturalPersonShape a sh:NodeShape ;
+    sh:targetClass hilo:NaturalPerson ;
+    rdfs:label "Natural Person Shape" ;
+    sh:property [
+        sh:path hilo:Relation 
+    ]  .
+
+hilo:EnterpriseShape a sh:NodeShape ;
+    sh:targetClass hilo:Enterprise ;
+    rdfs:label "Enterprise Shape"  .
+
+hilo:CompetentAuthorityShape a sh:NodeShape ;
+    sh:targetClass hilo:CompetentAuthority ;
+    rdfs:label "Competent Authority Shape"  .
+
+hilo:GoodsShape a sh:NodeShape ;
+    sh:targetClass hilo:Goods ;
+    rdfs:label "Goods Shape"  .
+
+hilo:ContainerShape a sh:NodeShape ;
+    sh:targetClass hilo:Container ;
+    rdfs:label "Container Shape"  .
+
+hilo:TruckShape a sh:NodeShape ;
+    sh:targetClass hilo:Truck ;
+    rdfs:label "Truck Shape"  .
+
