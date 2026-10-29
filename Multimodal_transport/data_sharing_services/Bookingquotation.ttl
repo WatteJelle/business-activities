@@ -1,0 +1,92 @@
+@prefix hilo: <https://hilosemantics.com/> .
+@prefix geof: <http://www.opengis.net/def/function/geosparql/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix qudt-dimension: <http://qudt.org/vocab/dimension/> .
+@prefix qudt-quantitykind: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudt-unit: <http://qudt.org/vocab/unit/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unece: <https://vocabulary.uncefact.org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dspex: <https://hilosemantics.com/dss-export#> .
+
+# Data Sharing Pattern: Booking/quotation
+<https://hilosemantics.com/Booking/quotation-1773230554216> a owl:Ontology, <https://hilosemantics.com/DataSharingService> ;
+    rdfs:label "Booking/quotation" ;
+    owl:versionInfo "1.0" ;
+    <https://hilosemantics.com/startStateServ> hilo:BusinessServiceretrieved-1773232680412 ;
+    <https://hilosemantics.com/endStateServ> hilo:Confirmedbooking-1773232706936  .
+
+dspex:SenderBehaviour a owl:Class ;
+    rdfs:label "Sender behaviour" ;
+    rdfs:comment "Details of a state transition as executed by the sender of the trigger data sharing event: pre-condition, firing rule, warning and post-condition." .
+
+dspex:RecipientBehaviour a owl:Class ;
+    rdfs:label "Recipient behaviour" ;
+    rdfs:comment "Details of a state transition as executed by the recipient of the trigger data sharing event: pre-condition, firing rule, warning and post-condition." .
+
+dspex:preCondition a owl:AnnotationProperty ;
+    rdfs:label "pre Condition" .
+
+dspex:firingRule a owl:AnnotationProperty ;
+    rdfs:label "firing Rule" .
+
+dspex:warning a owl:AnnotationProperty ;
+    rdfs:label "warning" .
+
+dspex:postCondition a owl:AnnotationProperty ;
+    rdfs:label "post Condition" .
+
+dspex:role a owl:AnnotationProperty ;
+    rdfs:label "role" .
+
+dspex:principalRole a owl:AnnotationProperty ;
+    rdfs:label "principal Role" .
+
+dspex:rolePair a owl:AnnotationProperty ;
+    rdfs:label "role Pair" .
+
+dspex:senderRole a owl:AnnotationProperty ;
+    rdfs:label "sender Role" .
+
+dspex:internalTrigger a owl:AnnotationProperty ;
+    rdfs:label "internal Trigger" .
+
+dspex:initiatingRole a owl:AnnotationProperty ;
+    rdfs:label "initiating Role" .
+
+dspex:senderBehaviour a owl:ObjectProperty ;
+    rdfs:label "sender behaviour" ;
+    rdfs:domain <https://hilosemantics.com/Statetransition> ;
+    rdfs:range dspex:SenderBehaviour .
+
+dspex:recipientBehaviour a owl:ObjectProperty ;
+    rdfs:label "recipient behaviour" ;
+    rdfs:domain <https://hilosemantics.com/Statetransition> ;
+    rdfs:range dspex:RecipientBehaviour .
+
+hilo:Confirmedbooking-1773232706936 a <https://hilosemantics.com/State>, owl:NamedIndividual ;
+    rdfs:label "Confirmed booking" ;
+    <https://hilosemantics.com/stateServ> <https://hilosemantics.com/Booking/quotation-1773230554216>  .
+
+hilo:Bookingmade-1773232692912 a <https://hilosemantics.com/State>, owl:NamedIndividual ;
+    rdfs:label "Booking made" ;
+    <https://hilosemantics.com/stateServ> <https://hilosemantics.com/Booking/quotation-1773230554216>  .
+
+hilo:BusinessServiceretrieved-1773232680412 a <https://hilosemantics.com/State>, owl:NamedIndividual ;
+    rdfs:label "Business Service retrieved" ;
+    <https://hilosemantics.com/stateServ> <https://hilosemantics.com/Booking/quotation-1773230554216>  .
+
+hilo:Bookingconfirmation-1773232741914 a <https://hilosemantics.com/DataSharingEvent>, owl:NamedIndividual ;
+    rdfs:label "Booking confirmation" ;
+    dspex:initiatingRole "service provider" ;
+    <https://hilosemantics.com/eventServ> <https://hilosemantics.com/Booking/quotation-1773230554216>  .
+
+hilo:Booking-1773232726508 a <https://hilosemantics.com/DataSharingEvent>, owl:NamedIndividual ;
+    rdfs:label "Booking" ;
+    dspex:initiatingRole "customer" ;
+    <https://hilosemantics.com/eventServ> <https://hilosemantics.com/Booking/quotation-1773230554216>  .
+
