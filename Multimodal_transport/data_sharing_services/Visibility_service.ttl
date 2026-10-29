@@ -1,0 +1,152 @@
+@prefix hilo: <https://hilosemantics.com/> .
+@prefix geof: <http://www.opengis.net/def/function/geosparql/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix qudt-dimension: <http://qudt.org/vocab/dimension/> .
+@prefix qudt-quantitykind: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudt-unit: <http://qudt.org/vocab/unit/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unece: <https://vocabulary.uncefact.org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dspex: <https://hilosemantics.com/dss-export#> .
+
+# Data Sharing Pattern: Visibility service
+hilo:Visibilityservice-1773230132472 a owl:Ontology, <https://hilosemantics.com/DataSharingService> ;
+    rdfs:label "Visibility service" ;
+    owl:versionInfo "1.0" ;
+    <https://hilosemantics.com/startStateServ> hilo:Orderconfirmed-1773231332182 ;
+    <https://hilosemantics.com/endStateServ> hilo:Cargodelivered-1773232889414  .
+
+dspex:SenderBehaviour a owl:Class ;
+    rdfs:label "Sender behaviour" ;
+    rdfs:comment "Details of a state transition as executed by the sender of the trigger data sharing event: pre-condition, firing rule, warning and post-condition." .
+
+dspex:RecipientBehaviour a owl:Class ;
+    rdfs:label "Recipient behaviour" ;
+    rdfs:comment "Details of a state transition as executed by the recipient of the trigger data sharing event: pre-condition, firing rule, warning and post-condition." .
+
+dspex:preCondition a owl:AnnotationProperty ;
+    rdfs:label "pre Condition" .
+
+dspex:firingRule a owl:AnnotationProperty ;
+    rdfs:label "firing Rule" .
+
+dspex:warning a owl:AnnotationProperty ;
+    rdfs:label "warning" .
+
+dspex:postCondition a owl:AnnotationProperty ;
+    rdfs:label "post Condition" .
+
+dspex:role a owl:AnnotationProperty ;
+    rdfs:label "role" .
+
+dspex:principalRole a owl:AnnotationProperty ;
+    rdfs:label "principal Role" .
+
+dspex:rolePair a owl:AnnotationProperty ;
+    rdfs:label "role Pair" .
+
+dspex:senderRole a owl:AnnotationProperty ;
+    rdfs:label "sender Role" .
+
+dspex:internalTrigger a owl:AnnotationProperty ;
+    rdfs:label "internal Trigger" .
+
+dspex:initiatingRole a owl:AnnotationProperty ;
+    rdfs:label "initiating Role" .
+
+dspex:senderBehaviour a owl:ObjectProperty ;
+    rdfs:label "sender behaviour" ;
+    rdfs:domain <https://hilosemantics.com/Statetransition> ;
+    rdfs:range dspex:SenderBehaviour .
+
+dspex:recipientBehaviour a owl:ObjectProperty ;
+    rdfs:label "recipient behaviour" ;
+    rdfs:domain <https://hilosemantics.com/Statetransition> ;
+    rdfs:range dspex:RecipientBehaviour .
+
+hilo:Cargoaccepted-1773232897517 a <https://hilosemantics.com/State>, owl:NamedIndividual ;
+    rdfs:label "Cargo accepted" ;
+    <https://hilosemantics.com/stateServ> hilo:Visibilityservice-1773230132472  .
+
+hilo:Cargodelivered-1773232889414 a <https://hilosemantics.com/State>, owl:NamedIndividual ;
+    rdfs:label "Cargo delivered" ;
+    <https://hilosemantics.com/stateServ> hilo:Visibilityservice-1773230132472  .
+
+hilo:Cargounloaded-1773232869889 a <https://hilosemantics.com/State>, owl:NamedIndividual ;
+    rdfs:label "Cargo unloaded" ;
+    <https://hilosemantics.com/stateServ> hilo:Visibilityservice-1773230132472  .
+
+hilo:Cargoloaded-1773232857293 a <https://hilosemantics.com/State>, owl:NamedIndividual ;
+    rdfs:label "Cargo loaded" ;
+    <https://hilosemantics.com/stateServ> hilo:Visibilityservice-1773230132472  .
+
+hilo:Cargoonitsway-1773232847983 a <https://hilosemantics.com/State>, owl:NamedIndividual ;
+    rdfs:label "Cargo on its way" ;
+    <https://hilosemantics.com/stateServ> hilo:Visibilityservice-1773230132472  .
+
+<https://hilosemantics.com/Visibilityservice-1773230132472/state-transition/7551f458-2f97-49d1-a4b1-991a60cb8b18> a <https://hilosemantics.com/Statetransition>, owl:NamedIndividual ;
+    rdfs:label "Cargo accepted" ;
+    <https://hilosemantics.com/inputState> hilo:Cargoloaded-1773232857293 ;
+    <https://hilosemantics.com/outputState> hilo:Cargoaccepted-1773232897517 ;
+    <https://hilosemantics.com/trigger> hilo:eCMRavaiable-1773243081107 ;
+    <https://hilosemantics.com/transServ> hilo:Visibilityservice-1773230132472 ;
+    dspex:senderBehaviour [
+        a dspex:SenderBehaviour ;
+        dspex:preCondition "Cargo is loaded on truck" ;
+        dspex:postCondition "Cargo has been inspected and truck has departed" ;
+    ] ;
+    dspex:recipientBehaviour [
+        a dspex:RecipientBehaviour ;
+        dspex:preCondition "Cargo is loaded on truck" ;
+    ]  .
+
+<https://hilosemantics.com/Visibilityservice-1773230132472/state-transition/5161664d-bb41-4872-bc3d-32fcf756dcf3> a <https://hilosemantics.com/Statetransition>, owl:NamedIndividual ;
+    rdfs:label "Load cargo" ;
+    <https://hilosemantics.com/inputState> hilo:Orderconfirmed-1773231332182 ;
+    <https://hilosemantics.com/outputState> hilo:Cargoloaded-1773232857293 ;
+    <https://hilosemantics.com/trigger> hilo:Loadevent-1773233112099 ;
+    <https://hilosemantics.com/transServ> hilo:Visibilityservice-1773230132472 ;
+    dspex:senderBehaviour [
+        a dspex:SenderBehaviour ;
+        dspex:preCondition "Cargo and truck are present at the location" ;
+        dspex:postCondition "Cargo loaded on truck." ;
+    ] ;
+    dspex:recipientBehaviour [
+        a dspex:RecipientBehaviour ;
+        dspex:preCondition "Cargo and truck are present at the location" ;
+    ]  .
+
+hilo:eCMRavaiable-1773243081107 a <https://hilosemantics.com/DataSharingEvent>, owl:NamedIndividual ;
+    rdfs:label "eCMR available" ;
+    dspex:initiatingRole "service provider" ;
+    <https://hilosemantics.com/eventServ> hilo:Visibilityservice-1773230132472  .
+
+hilo:Departureevent-1773238849357 a <https://hilosemantics.com/DataSharingEvent>, owl:NamedIndividual ;
+    rdfs:label "Departure event" ;
+    dspex:initiatingRole "service provider" ;
+    <https://hilosemantics.com/eventServ> hilo:Visibilityservice-1773230132472  .
+
+hilo:Arrivalevent-1773233140020 a <https://hilosemantics.com/DataSharingEvent>, owl:NamedIndividual ;
+    rdfs:label "Arrival event" ;
+    dspex:initiatingRole "service provider" ;
+    <https://hilosemantics.com/eventServ> hilo:Visibilityservice-1773230132472  .
+
+hilo:Unloadevent-1773233128994 a <https://hilosemantics.com/DataSharingEvent>, owl:NamedIndividual ;
+    rdfs:label "Unload event" ;
+    dspex:initiatingRole "service provider" ;
+    <https://hilosemantics.com/eventServ> hilo:Visibilityservice-1773230132472  .
+
+hilo:Loadevent-1773233112099 a <https://hilosemantics.com/DataSharingEvent>, owl:NamedIndividual ;
+    rdfs:label "Load event" ;
+    dspex:initiatingRole "service provider" ;
+    <https://hilosemantics.com/eventServ> hilo:Visibilityservice-1773230132472  .
+
+hilo:ETAevent-1773233099806 a <https://hilosemantics.com/DataSharingEvent>, owl:NamedIndividual ;
+    rdfs:label "ETA event" ;
+    dspex:initiatingRole "service provider" ;
+    <https://hilosemantics.com/eventServ> hilo:Visibilityservice-1773230132472  .
+
