@@ -1,6 +1,6 @@
 {
   "component_type": "data_sharing_service",
-  "exported_at": "2026-10-28T15:54:53.250Z",
+  "exported_at": "2026-10-29T13:47:44.138Z",
   "activity": {
     "iri": "https://hilosemantics.com/Multimodaltransport-1772188764268",
     "name": "Multimodal transport",
@@ -38,7 +38,7 @@
       "version": "1.0",
       "type": "state",
       "parent_iri": "https://hilosemantics.com/Visibilityservice-1773230132472",
-      "interaction_type": "",
+      "interaction_type": "collaborate",
       "initiating_role": "",
       "creator": "",
       "creation_date": "",
@@ -55,7 +55,7 @@
       "version": "1.0",
       "type": "state",
       "parent_iri": "https://hilosemantics.com/Visibilityservice-1773230132472",
-      "interaction_type": "",
+      "interaction_type": "collaborate",
       "initiating_role": "",
       "creator": "",
       "creation_date": "",
@@ -72,7 +72,7 @@
       "version": "1.0",
       "type": "state",
       "parent_iri": "https://hilosemantics.com/Visibilityservice-1773230132472",
-      "interaction_type": "",
+      "interaction_type": "collaborate",
       "initiating_role": "",
       "creator": "",
       "creation_date": "",
@@ -89,7 +89,7 @@
       "version": "1.0",
       "type": "state",
       "parent_iri": "https://hilosemantics.com/Visibilityservice-1773230132472",
-      "interaction_type": "",
+      "interaction_type": "collaborate",
       "initiating_role": "",
       "creator": "",
       "creation_date": "",
@@ -106,7 +106,7 @@
       "version": "1.0",
       "type": "state",
       "parent_iri": "https://hilosemantics.com/Visibilityservice-1773230132472",
-      "interaction_type": "",
+      "interaction_type": "collaborate",
       "initiating_role": "",
       "creator": "",
       "creation_date": "",
@@ -164,7 +164,7 @@
       "sender_role": "",
       "input_state": {
         "metadata_id": "69b15ce46a857dcca32108cd",
-        "metadata_name": "↖ Order confirmed (prev. service end state)",
+        "metadata_name": "Order confirmed",
         "metadata_iri": "https://hilosemantics.com/Orderconfirmed-1773231332182"
       },
       "trigger_event": {
