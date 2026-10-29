@@ -1,0 +1,26 @@
+{
+  "component_type": "business_activity",
+  "exported_at": "2026-10-29T13:47:56.116Z",
+  "relation": "specialization",
+  "parent": {
+    "name": "Multimodal transport",
+    "iri": "https://hilosemantics.com/Multimodaltransport-1772188764268"
+  },
+  "activity": {
+    "iri": "https://hilosemantics.com/roadtransport-1773243845196",
+    "namespace_prefix": "hilo",
+    "name": "road transport",
+    "description": "",
+    "version": "1.0",
+    "type": "business activity",
+    "parent_iri": "https://hilosemantics.com/Multimodaltransport-1772188764268",
+    "interaction_type": "",
+    "initiating_role": "",
+    "creator": "",
+    "creation_date": "",
+    "hierarchy_assoc_ids": [],
+    "selected_property_iris": [],
+    "selected_code_iris": [],
+    "alignments": []
+  }
+}
