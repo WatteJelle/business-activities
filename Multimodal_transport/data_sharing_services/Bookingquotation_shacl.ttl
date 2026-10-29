@@ -1,0 +1,104 @@
+@prefix hilo: <https://hilosemantics.com/> .
+@prefix geof: <http://www.opengis.net/def/function/geosparql/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix qudt-dimension: <http://qudt.org/vocab/dimension/> .
+@prefix qudt-quantitykind: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudt-unit: <http://qudt.org/vocab/unit/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unece: <https://vocabulary.uncefact.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# SHACL constraints for data sharing service: Booking/quotation
+<https://hilosemantics.com/Booking/quotation-1773230554216Shape> a sh:NodeShape ;
+    sh:targetNode <https://hilosemantics.com/Booking/quotation-1773230554216> ;
+    rdfs:label "Booking/quotation service shape" ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+    ] ;
+    sh:property [
+        sh:path <https://hilosemantics.com/startStateServ> ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:hasValue hilo:BusinessServiceretrieved-1773232680412 ;
+    ] ;
+    sh:property [
+        sh:path <https://hilosemantics.com/endStateServ> ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:hasValue hilo:Confirmedbooking-1773232706936 ;
+    ] ;
+    sh:property [
+        sh:path [ sh:inversePath <https://hilosemantics.com/stateServ> ] ;
+        sh:minCount 3 ;
+    ] ;
+    sh:property [
+        sh:path [ sh:inversePath <https://hilosemantics.com/eventServ> ] ;
+        sh:minCount 2 ;
+    ]  .
+
+<https://hilosemantics.com/Booking/quotation-1773230554216StateShape> a sh:NodeShape ;
+    sh:targetClass <https://hilosemantics.com/State> ;
+    rdfs:label "Booking/quotation state shape" ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+    ] ;
+    sh:property [
+        sh:path <https://hilosemantics.com/stateServ> ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ]  .
+
+<https://hilosemantics.com/Booking/quotation-1773230554216StateTransitionShape> a sh:NodeShape ;
+    sh:targetClass <https://hilosemantics.com/Statetransition> ;
+    rdfs:label "Booking/quotation state transition shape" ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+    ] ;
+    sh:property [
+        sh:path <https://hilosemantics.com/inputState> ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path <https://hilosemantics.com/outputState> ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path <https://hilosemantics.com/trigger> ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path <https://hilosemantics.com/transServ> ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ]  .
+
+<https://hilosemantics.com/Booking/quotation-1773230554216DataSharingEventShape> a sh:NodeShape ;
+    sh:targetClass <https://hilosemantics.com/DataSharingEvent> ;
+    rdfs:label "Booking/quotation data sharing event shape" ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+    ] ;
+    sh:property [
+        sh:path <https://hilosemantics.com/eventServ> ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ]  .
+
