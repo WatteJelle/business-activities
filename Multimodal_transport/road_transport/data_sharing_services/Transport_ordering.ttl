@@ -1,0 +1,115 @@
+@prefix hilo: <https://hilosemantics.com/> .
+@prefix geof: <http://www.opengis.net/def/function/geosparql/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix qudt-dimension: <http://qudt.org/vocab/dimension/> .
+@prefix qudt-quantitykind: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudt-unit: <http://qudt.org/vocab/unit/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unece: <https://vocabulary.uncefact.org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dspex: <https://hilosemantics.com/dss-export#> .
+
+# Data Sharing Pattern: Transport ordering
+hilo:Ordering-1774610547520 a owl:Ontology, <https://hilosemantics.com/DataSharingService> ;
+    rdfs:label "Transport ordering" ;
+    owl:versionInfo "1.0" ;
+    <https://hilosemantics.com/startStateServ> hilo:Contract-1774610781686 ;
+    <https://hilosemantics.com/endStateServ> hilo:Loaded-1774610656332  .
+
+dspex:SenderBehaviour a owl:Class ;
+    rdfs:label "Sender behaviour" ;
+    rdfs:comment "Details of a state transition as executed by the sender of the trigger data sharing event: pre-condition, firing rule, warning and post-condition." .
+
+dspex:RecipientBehaviour a owl:Class ;
+    rdfs:label "Recipient behaviour" ;
+    rdfs:comment "Details of a state transition as executed by the recipient of the trigger data sharing event: pre-condition, firing rule, warning and post-condition." .
+
+dspex:preCondition a owl:AnnotationProperty ;
+    rdfs:label "pre Condition" .
+
+dspex:firingRule a owl:AnnotationProperty ;
+    rdfs:label "firing Rule" .
+
+dspex:warning a owl:AnnotationProperty ;
+    rdfs:label "warning" .
+
+dspex:postCondition a owl:AnnotationProperty ;
+    rdfs:label "post Condition" .
+
+dspex:role a owl:AnnotationProperty ;
+    rdfs:label "role" .
+
+dspex:principalRole a owl:AnnotationProperty ;
+    rdfs:label "principal Role" .
+
+dspex:rolePair a owl:AnnotationProperty ;
+    rdfs:label "role Pair" .
+
+dspex:senderRole a owl:AnnotationProperty ;
+    rdfs:label "sender Role" .
+
+dspex:internalTrigger a owl:AnnotationProperty ;
+    rdfs:label "internal Trigger" .
+
+dspex:initiatingRole a owl:AnnotationProperty ;
+    rdfs:label "initiating Role" .
+
+dspex:senderBehaviour a owl:ObjectProperty ;
+    rdfs:label "sender behaviour" ;
+    rdfs:domain <https://hilosemantics.com/Statetransition> ;
+    rdfs:range dspex:SenderBehaviour .
+
+dspex:recipientBehaviour a owl:ObjectProperty ;
+    rdfs:label "recipient behaviour" ;
+    rdfs:domain <https://hilosemantics.com/Statetransition> ;
+    rdfs:range dspex:RecipientBehaviour .
+
+hilo:Contract-1774610781686 a <https://hilosemantics.com/State>, owl:NamedIndividual ;
+    rdfs:label "Contract" ;
+    <https://hilosemantics.com/stateServ> hilo:Ordering-1774610547520  .
+
+hilo:Unloaded-1774610672595 a <https://hilosemantics.com/State>, owl:NamedIndividual ;
+    rdfs:label "Ordered" ;
+    <https://hilosemantics.com/stateServ> hilo:Ordering-1774610547520  .
+
+hilo:Loaded-1774610656332 a <https://hilosemantics.com/State>, owl:NamedIndividual ;
+    rdfs:label "Planned" ;
+    <https://hilosemantics.com/stateServ> hilo:Ordering-1774610547520  .
+
+<https://hilosemantics.com/Ordering-1774610547520/state-transition/7693ce77-19a9-4007-aace-e0f436b444c6> a <https://hilosemantics.com/Statetransition>, owl:NamedIndividual ;
+    rdfs:label "Plan order" ;
+    <https://hilosemantics.com/inputState> hilo:Unloaded-1774610672595 ;
+    <https://hilosemantics.com/outputState> hilo:Loaded-1774610656332 ;
+    <https://hilosemantics.com/trigger> hilo:ETAevent-1774610614390 ;
+    <https://hilosemantics.com/transServ> hilo:Ordering-1774610547520  .
+
+<https://hilosemantics.com/Ordering-1774610547520/state-transition/81382687-b618-4117-93f5-764a2cf24284> a <https://hilosemantics.com/Statetransition>, owl:NamedIndividual ;
+    rdfs:label "Place order" ;
+    <https://hilosemantics.com/inputState> hilo:Contract-1774610781686 ;
+    <https://hilosemantics.com/outputState> hilo:Unloaded-1774610672595 ;
+    <https://hilosemantics.com/trigger> hilo:Unloadevent-1774610627996 ;
+    <https://hilosemantics.com/transServ> hilo:Ordering-1774610547520 ;
+    dspex:senderBehaviour [
+        a dspex:SenderBehaviour ;
+        dspex:preCondition "contract exists" ;
+        dspex:postCondition "Order is placed" ;
+    ] ;
+    dspex:recipientBehaviour [
+        a dspex:RecipientBehaviour ;
+        dspex:preCondition "contract exists" ;
+    ]  .
+
+hilo:Unloadevent-1774610627996 a <https://hilosemantics.com/DataSharingEvent>, owl:NamedIndividual ;
+    rdfs:label "Transport order" ;
+    dspex:initiatingRole "customer" ;
+    <https://hilosemantics.com/eventServ> hilo:Ordering-1774610547520  .
+
+hilo:ETAevent-1774610614390 a <https://hilosemantics.com/DataSharingEvent>, owl:NamedIndividual ;
+    rdfs:label "Transport plan" ;
+    dspex:initiatingRole "service provider" ;
+    <https://hilosemantics.com/eventServ> hilo:Ordering-1774610547520  .
+
