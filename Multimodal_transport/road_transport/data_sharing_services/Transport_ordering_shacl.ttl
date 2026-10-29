@@ -1,0 +1,108 @@
+@prefix hilo: <https://hilosemantics.com/> .
+@prefix geof: <http://www.opengis.net/def/function/geosparql/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix qudt-dimension: <http://qudt.org/vocab/dimension/> .
+@prefix qudt-quantitykind: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudt-unit: <http://qudt.org/vocab/unit/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unece: <https://vocabulary.uncefact.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# SHACL constraints for data sharing service: Transport ordering
+hilo:Ordering-1774610547520Shape a sh:NodeShape ;
+    sh:targetNode hilo:Ordering-1774610547520 ;
+    rdfs:label "Transport ordering service shape" ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+    ] ;
+    sh:property [
+        sh:path <https://hilosemantics.com/startStateServ> ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:hasValue hilo:Contract-1774610781686 ;
+    ] ;
+    sh:property [
+        sh:path <https://hilosemantics.com/endStateServ> ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:hasValue hilo:Loaded-1774610656332 ;
+    ] ;
+    sh:property [
+        sh:path [ sh:inversePath <https://hilosemantics.com/stateServ> ] ;
+        sh:minCount 3 ;
+    ] ;
+    sh:property [
+        sh:path [ sh:inversePath <https://hilosemantics.com/transServ> ] ;
+        sh:minCount 2 ;
+    ] ;
+    sh:property [
+        sh:path [ sh:inversePath <https://hilosemantics.com/eventServ> ] ;
+        sh:minCount 2 ;
+    ]  .
+
+hilo:Ordering-1774610547520StateShape a sh:NodeShape ;
+    sh:targetClass <https://hilosemantics.com/State> ;
+    rdfs:label "Transport ordering state shape" ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+    ] ;
+    sh:property [
+        sh:path <https://hilosemantics.com/stateServ> ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ]  .
+
+hilo:Ordering-1774610547520StateTransitionShape a sh:NodeShape ;
+    sh:targetClass <https://hilosemantics.com/Statetransition> ;
+    rdfs:label "Transport ordering state transition shape" ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+    ] ;
+    sh:property [
+        sh:path <https://hilosemantics.com/inputState> ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path <https://hilosemantics.com/outputState> ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path <https://hilosemantics.com/trigger> ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path <https://hilosemantics.com/transServ> ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ]  .
+
+hilo:Ordering-1774610547520DataSharingEventShape a sh:NodeShape ;
+    sh:targetClass <https://hilosemantics.com/DataSharingEvent> ;
+    rdfs:label "Transport ordering data sharing event shape" ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+    ] ;
+    sh:property [
+        sh:path <https://hilosemantics.com/eventServ> ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ]  .
+
