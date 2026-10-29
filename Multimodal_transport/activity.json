@@ -1,0 +1,23 @@
+{
+  "component_type": "business_activity",
+  "exported_at": "2026-10-29T13:47:30.330Z",
+  "relation": "root",
+  "parent": null,
+  "activity": {
+    "iri": "https://hilosemantics.com/Multimodaltransport-1772188764268",
+    "namespace_prefix": "hilo",
+    "name": "Multimodal transport",
+    "description": "",
+    "version": "1.0",
+    "type": "business activity",
+    "parent_iri": "",
+    "interaction_type": "collaborate",
+    "initiating_role": "",
+    "creator": "",
+    "creation_date": "",
+    "hierarchy_assoc_ids": [],
+    "selected_property_iris": [],
+    "selected_code_iris": [],
+    "alignments": []
+  }
+}
