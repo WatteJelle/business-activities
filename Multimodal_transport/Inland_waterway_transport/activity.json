@@ -1,0 +1,26 @@
+{
+  "component_type": "business_activity",
+  "exported_at": "2026-10-29T13:47:47.977Z",
+  "relation": "specialization",
+  "parent": {
+    "name": "Multimodal transport",
+    "iri": "https://hilosemantics.com/Multimodaltransport-1772188764268"
+  },
+  "activity": {
+    "iri": "https://hilosemantics.com/Inlandwaterwaytransport1774685843451",
+    "namespace_prefix": "hilo",
+    "name": "Inland waterway transport",
+    "description": "",
+    "version": "1.0",
+    "type": "business activity",
+    "parent_iri": "https://hilosemantics.com/Multimodaltransport-1772188764268",
+    "interaction_type": "collaborate",
+    "initiating_role": "",
+    "creator": "",
+    "creation_date": "",
+    "hierarchy_assoc_ids": [],
+    "selected_property_iris": [],
+    "selected_code_iris": [],
+    "alignments": []
+  }
+}
