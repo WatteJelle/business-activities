@@ -1,0 +1,197 @@
+{
+  "component_type": "data_sharing_service",
+  "exported_at": "2026-10-29T13:48:09.078Z",
+  "activity": {
+    "iri": "https://hilosemantics.com/roadtransport-1773243845196",
+    "name": "road transport",
+    "type": "business activity"
+  },
+  "service": {
+    "iri": "https://hilosemantics.com/Ordering-1774610547520",
+    "namespace_prefix": "hilo",
+    "name": "Transport ordering",
+    "description": "",
+    "version": "1.0",
+    "type": "data sharing service",
+    "parent_iri": "https://hilosemantics.com/roadtransport-1773243845196",
+    "interaction_type": "collaborate",
+    "initiating_role": "",
+    "creator": "",
+    "creation_date": "",
+    "hierarchy_assoc_ids": [],
+    "selected_property_iris": [],
+    "selected_code_iris": [],
+    "alignments": [
+      {
+        "type": "owl:sameAs",
+        "target_uri": "https://hilosemantics.com/DataSharingService",
+        "target_class": "https://hilosemantics.com/DataSharingService"
+      }
+    ]
+  },
+  "states": [
+    {
+      "iri": "https://hilosemantics.com/Contract-1774610781686",
+      "namespace_prefix": "hilo",
+      "name": "Contract",
+      "description": "",
+      "version": "1.0",
+      "type": "state",
+      "parent_iri": "https://hilosemantics.com/Ordering-1774610547520",
+      "interaction_type": "collaborate",
+      "initiating_role": "",
+      "creator": "",
+      "creation_date": "",
+      "hierarchy_assoc_ids": [],
+      "selected_property_iris": [],
+      "selected_code_iris": [],
+      "alignments": []
+    },
+    {
+      "iri": "https://hilosemantics.com/Unloaded-1774610672595",
+      "namespace_prefix": "hilo",
+      "name": "Ordered",
+      "description": "",
+      "version": "1.0",
+      "type": "state",
+      "parent_iri": "https://hilosemantics.com/Ordering-1774610547520",
+      "interaction_type": "collaborate",
+      "initiating_role": "",
+      "creator": "",
+      "creation_date": "",
+      "hierarchy_assoc_ids": [],
+      "selected_property_iris": [],
+      "selected_code_iris": [],
+      "alignments": []
+    },
+    {
+      "iri": "https://hilosemantics.com/Loaded-1774610656332",
+      "namespace_prefix": "hilo",
+      "name": "Planned",
+      "description": "",
+      "version": "1.0",
+      "type": "state",
+      "parent_iri": "https://hilosemantics.com/Ordering-1774610547520",
+      "interaction_type": "collaborate",
+      "initiating_role": "",
+      "creator": "",
+      "creation_date": "",
+      "hierarchy_assoc_ids": [],
+      "selected_property_iris": [],
+      "selected_code_iris": [],
+      "alignments": []
+    }
+  ],
+  "state_transitions": [
+    {
+      "name": "Plan order",
+      "transition_uuid": "7693ce77-19a9-4007-aace-e0f436b444c6",
+      "role": "",
+      "principal_role": "",
+      "subordinate_role": "",
+      "role_pair": "",
+      "sender_role": "",
+      "input_state": {
+        "metadata_id": "69c668f0b5a7d90b89a56097",
+        "metadata_name": "Ordered",
+        "metadata_iri": "https://hilosemantics.com/Unloaded-1774610672595"
+      },
+      "trigger_event": {
+        "metadata_id": "69c668b63f4a420a05bef76d",
+        "metadata_name": "Transport plan",
+        "metadata_iri": "https://hilosemantics.com/ETAevent-1774610614390"
+      },
+      "trigger_type": "send",
+      "sender_trigger_event": null,
+      "recipient_trigger_event": null,
+      "internal_trigger": null,
+      "pre_condition": "",
+      "pre_condition_conditions": [],
+      "output_state": {
+        "metadata_id": "69c668e0c151df47cba7018b",
+        "metadata_name": "Planned",
+        "metadata_iri": "https://hilosemantics.com/Loaded-1774610656332"
+      },
+      "warning": "",
+      "firing_rule": "",
+      "post_condition": "",
+      "error": "",
+      "recipient_firing_rule": "",
+      "recipient_post_condition": "",
+      "visualization_order": 0
+    },
+    {
+      "name": "Place order",
+      "transition_uuid": "81382687-b618-4117-93f5-764a2cf24284",
+      "role": "",
+      "principal_role": "",
+      "subordinate_role": "",
+      "role_pair": "",
+      "sender_role": "",
+      "input_state": {
+        "metadata_id": "69c6695d7eb4a99592cf8de3",
+        "metadata_name": "Contract",
+        "metadata_iri": "https://hilosemantics.com/Contract-1774610781686"
+      },
+      "trigger_event": {
+        "metadata_id": "69c668c41d49883ef6fd5580",
+        "metadata_name": "Transport order",
+        "metadata_iri": "https://hilosemantics.com/Unloadevent-1774610627996"
+      },
+      "trigger_type": "send",
+      "sender_trigger_event": null,
+      "recipient_trigger_event": null,
+      "internal_trigger": null,
+      "pre_condition": "contract exists",
+      "pre_condition_conditions": [],
+      "output_state": {
+        "metadata_id": "69c668f0b5a7d90b89a56097",
+        "metadata_name": "Ordered",
+        "metadata_iri": "https://hilosemantics.com/Unloaded-1774610672595"
+      },
+      "warning": "",
+      "firing_rule": "",
+      "post_condition": "Order is placed",
+      "error": "",
+      "recipient_firing_rule": "",
+      "recipient_post_condition": "",
+      "visualization_order": 0
+    }
+  ],
+  "data_sharing_events": [
+    {
+      "iri": "https://hilosemantics.com/Unloadevent-1774610627996",
+      "namespace_prefix": "hilo",
+      "name": "Transport order",
+      "description": "",
+      "version": "1.0",
+      "type": "data sharing event",
+      "parent_iri": "https://hilosemantics.com/Ordering-1774610547520",
+      "interaction_type": "collaborate",
+      "initiating_role": "customer",
+      "creator": "",
+      "creation_date": "",
+      "hierarchy_assoc_ids": [],
+      "selected_property_iris": [],
+      "selected_code_iris": [],
+      "alignments": []
+    },
+    {
+      "iri": "https://hilosemantics.com/ETAevent-1774610614390",
+      "namespace_prefix": "hilo",
+      "name": "Transport plan",
+      "description": "",
+      "version": "1.0",
+      "type": "data sharing event",
+      "parent_iri": "https://hilosemantics.com/Ordering-1774610547520",
+      "interaction_type": "collaborate",
+      "initiating_role": "service provider",
+      "creator": "",
+      "creation_date": "",
+      "hierarchy_assoc_ids": [],
+      "selected_property_iris": [],
+      "selected_code_iris": [],
+      "alignments": []
+    }
+  ]
+}
