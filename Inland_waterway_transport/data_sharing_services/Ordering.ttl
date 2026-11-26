@@ -65,7 +65,8 @@ dspex:recipientBehaviour a owl:ObjectProperty ;
 hilo:Ordering-1792833917167_Inlandwaterwaytransport a owl:Ontology, <https://hilosemantics.com/DataSharingService> ;
     rdfs:label "Ordering" ;
     owl:versionInfo "1.0" ;
-    <https://hilosemantics.com/startStateServ> hilo:Contract-1792833997050  .
+    <https://hilosemantics.com/startStateServ> hilo:Contract-1792833997050 ;
+    <https://hilosemantics.com/endStateServ> hilo:Orderconfirmed-1792833586306  .
 
 hilo:Ordered-1792834013317 a <https://hilosemantics.com/State>, owl:NamedIndividual ;
     rdfs:label "Ordered" ;
