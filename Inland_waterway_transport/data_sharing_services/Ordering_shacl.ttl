@@ -32,6 +32,7 @@ hilo:Ordering-1792833917167_InlandwaterwaytransportShape a sh:NodeShape ;
         sh:path <https://hilosemantics.com/endStateServ> ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
+        sh:hasValue hilo:Orderconfirmed-1792833586306 ;
     ] ;
     sh:property [
         sh:path [ sh:inversePath <https://hilosemantics.com/stateServ> ] ;
